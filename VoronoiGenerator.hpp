@@ -1,9 +1,14 @@
 #pragma once 
 #include "Mapgenerator.hpp"
-#include "VoronoiPoint.hpp"
 #include <random>
 #include <vector>
 #include <cmath>
+struct VoronoiPoint{
+    int x;
+    int y;
+    int biometype;
+};
+
 class VoronoiGenerator : public MapGenerator{
 public:
     int nob = 4;
