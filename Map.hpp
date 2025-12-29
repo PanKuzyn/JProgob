@@ -6,6 +6,14 @@ private:
     int m_width;
     int m_height;
     std::vector<std::vector<Tile>> Map_tiles;
+    Tile* MapBoundryCheck(int x, int y){
+        if( x < 0 || x >= m_width || y < 0 || y>=m_height){
+            return nullptr;
+        }
+        else{
+            return &at(x,y);
+        }
+    }
 public:
     Map(){
         m_height = 0;
@@ -35,14 +43,6 @@ public:
             }
         }
         return false;
-    }
-    Tile* MapBoundryCheck(int x, int y){
-        if( x < 0 || x >= m_width || y < 0 || y>=m_height){
-            return nullptr;
-        }
-        else{
-            return &at(x,y);
-        }
     }
     const Tile& at(int x, int y) const{
         return Map_tiles[y][x];

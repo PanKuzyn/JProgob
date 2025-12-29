@@ -36,11 +36,16 @@ int main(){
     // std:: cout << "Plains: _ , Water: ~ , Forest: Y , Mountain: ^  "<<std::endl;
     MapGenerator *gen = choosegenerator(generator);
     Map Mapa_test = gen -> generate(width, height, seednumber);
-    Object_placer::placeObject(Mapa_test);
+    MapDetails::ApplyDetails(Mapa_test, seednumber);
     for(int i=0; i < height; i++){
         for(int j =0; j < width; j++){
             auto& tile = Mapa_test.at(j, i);
-            std::cout << (tile.hasObject() ? tile.getObject() : tile.getBiome());
+            if (tile.hasObject()){
+            std::cout << tile.getObject();
+            }
+            else{
+            std::cout << tile.getColor() << tile.getBiome() <<"\x1b[0m";
+            }
         }
         std::cout << "\n";
     }

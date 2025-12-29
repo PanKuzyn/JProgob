@@ -1,9 +1,6 @@
 #pragma once
 #include <memory>
-#include "Plains.hpp"
-#include "Water.hpp"
-#include "Mountain.hpp"
-#include "Forest.hpp"
+#include "Biome.hpp"
 class BiomeSet {
 public:
     static std::unique_ptr<Biome> set(int type){
@@ -19,6 +16,9 @@ public:
                 break;
             case 3: 
                 return std::make_unique<Mountain>();
+                break;
+            case 4: 
+                return std::make_unique<Beach>();
                 break;
             default:
                 return std::make_unique<Water>();
