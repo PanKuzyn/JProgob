@@ -19,7 +19,6 @@ int main(){
     int seednumber = 3;
     // int width =0;
     // int height =0;
-    // int generator = 0 ;
     // int seednumber = 0;
     // std::cout<<"Map width =  " <<std::endl;
     // std::cin >> width;
@@ -33,7 +32,7 @@ int main(){
     //     std::cerr<<"Map height or width needs to be graeter than ZERO!"<<std::endl;
     //     return 1;
     // }
-    // std:: cout << "Plains: _ ; Water: ~ ; Forest: Y ; Mountain: ^ ; Glade: , ; Beach: . "<<std::endl;
+    std:: cout << "Plains: _ ; Water: ~ ; Forest: Y ; Mountain: ^ ; Glade: , ; Beach: . "<<std::endl;
     std::unique_ptr<MapGenerator> gen = choosegenerator(generator);
     Map Mapa_test = gen -> generate(width, height, seednumber);
     MapDetails AddDetails(seednumber);
