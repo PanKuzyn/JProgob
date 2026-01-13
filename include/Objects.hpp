@@ -5,7 +5,10 @@ namespace kk{
      */
     class Objects{
     protected:
-        char m_objsymbol; 
+        char m_objsymbol; ///< ASCII symbol that represents map objects
+        static constexpr char bs = '#'; ///< ASCII Symbol that represents Bush
+        static constexpr char ts = 'T'; ///< ASCII Symbol that represents Tree
+        static constexpr char tcs = 'X'; ///< ASCII Symbol that represents Treasure Chest
     public:
         /**
          * Default constructor
@@ -24,7 +27,7 @@ namespace kk{
         /**
          * Function for getting symbol of object
          */
-        virtual char GetObjectSymbol() const; 
+        virtual char getObjectSymbol() const; 
     };
 
     /**

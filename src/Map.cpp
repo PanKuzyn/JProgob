@@ -29,7 +29,7 @@ namespace kk{
         int dx[] = {0, 1, -1, 0};
         int dy[] = {-1, 0, 0, 1};
         for(int i = 0; i<4; i++){
-            Tile* neighbour = MapBoundryCheck(x+dx[i], y+dy[i]);
+            const Tile* neighbour = MapBoundryCheck(x+dx[i], y+dy[i]);
             if(neighbour != nullptr){
                 if(*neighbour == correctType){
                     return true;
@@ -45,7 +45,7 @@ namespace kk{
         return m_maptiles[y][x];
     }
     void Map::setHeight(int height){
-        if(height < 200){
+        if(height < limit){
         m_height = height;
         }
         else {
@@ -56,8 +56,8 @@ namespace kk{
         return m_height;
     }
     void Map::setWidth(int width){
-        if(width < 200){
-        m_width = width;
+        if(width < limit){
+            m_width = width;
         }
         else {
             std::cout << "Map too big, will not fit in terminal";

@@ -10,12 +10,13 @@ namespace kk{
         int m_width; ///< Map width (number of columns in a vector)
         int m_height; ///< Map height (number of rows in a vector)
         std::vector<std::vector<Tile>> m_maptiles; ///< 2D vector of Tiles
+        static constexpr int limit = 200; 
 
         /**
          * Function for checking wheter coordinates of tiles are inside it's boundry
          * @param x horizontal coordinate
          * @param y vertical coordinate
-         * @return Tile* if coordinates are good and nullptr when outside boundry
+         * @return Tile* if coordinates are inside boundry and nullptr when outside boundry
          */
         Tile* MapBoundryCheck(int x, int y);
     public:
@@ -29,7 +30,7 @@ namespace kk{
          * @param x width of a map
          * @param y height of a map
          */
-        Map(int width, int height);
+        Map(int width,int height);
 
         /**
          * Function for checking neighbouring tiles biome types, checks in 4 directions  

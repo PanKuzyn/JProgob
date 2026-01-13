@@ -14,6 +14,21 @@ namespace kk
         char m_symbol; ///< ASCII Symbol that represents biome
         std::string m_color; ///< ANSII Color code of biome
     public:
+        static constexpr char ws = '~'; ///< ASCII Symbol that represents Water
+        static constexpr char ms = '^'; ///< ASCII Symbol that represents Mountain
+        static constexpr char fs = 'Y'; ///< ASCII Symbol that represents Forest
+        static constexpr char ps = '_'; ///< ASCII Symbol that represents Plains
+        static constexpr char bs = '.'; ///< ASCII Symbol that represents Beach
+        static constexpr char gs = ','; ///< ASCII Symbol that represents Glade 
+        static constexpr const char* wc = "\x1b[38;5;45m"; ///< ANSII color code for water
+        static constexpr const char* dwc = "\x1b[38;5;4m"; ///< ANSII color code for Deep Water
+        static constexpr const char* mc = "\x1b[38;5;235m"; ///< ANSII color code for Mountain
+        static constexpr const char* mpc = "\x1b[38;5;255m"; ///< ANSII color code for Mountain Peak
+        static constexpr const char* fc = "\x1b[38;5;10m"; ///< ANSII color code for Forest
+        static constexpr const char* dfc = "\x1b[38;5;22m"; ///< ANSII color code for Dark Forest
+        static constexpr const char* pc = "\x1b[38;5;10m"; ///< ANSII color code for Plains
+        static constexpr const char* bc = "\x1b[38;5;220m"; ///< ANSII color code for Beach
+        static constexpr const char* gc = "\x1b[38;5;155m"; ///< ANSII color code for Glade
         /**
          * Default constructor
          */
@@ -32,12 +47,12 @@ namespace kk
          *Function for getting symbolof a biome
          * @return ASCII biome symbol
          */
-        virtual char GetBiomeSymbol() const; 
+        virtual char getBiomeSymbol() const; 
         /**
         * Function for getting color of a biome
         * @return ANSII code for biome color
         */
-        virtual std::string GetBiomeColor() const;
+        virtual std::string getBiomeColor() const;
         /**
          * Function for getting number of basic biomes
          * @return number of basic biomes
@@ -86,7 +101,7 @@ namespace kk
          * Deafault constructor  
          */
         Plains();
-         /**
+        /**
          * Parametrized Constructor  
          * @param symbol ASCII symbol 
          * @param color ANSII color code
@@ -113,7 +128,7 @@ namespace kk
          * Deafault constructor  
          */
         Forest();
-         /**
+        /**
          * Parametrized Constructor  
          * @param symbol ASCII symbol 
          * @param color ANSII color code
@@ -147,7 +162,7 @@ namespace kk
     class Mountain : public Biome{
     public:
         Mountain();
-         /**
+        /**
          * Parametrized Constructor  
          * @param symbol ASCII symbol 
          * @param color ANSII color code
@@ -164,5 +179,4 @@ namespace kk
          */
         MountainPeak();
     };
-   
 }

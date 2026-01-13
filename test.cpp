@@ -33,7 +33,7 @@ int main(){
     //     std::cerr<<"Map height or width needs to be graeter than ZERO!"<<std::endl;
     //     return 1;
     // }
-    // std:: cout << "Plains: _ , Water: ~ , Forest: Y , Mountain: ^  "<<std::endl;
+    // std:: cout << "Plains: _ ; Water: ~ ; Forest: Y ; Mountain: ^ ; Glade: , ; Beach: . "<<std::endl;
     std::unique_ptr<MapGenerator> gen = choosegenerator(generator);
     Map Mapa_test = gen -> generate(width, height, seednumber);
     MapDetails AddDetails(seednumber);
@@ -42,10 +42,10 @@ int main(){
         for(int j =0; j < width; j++){
             auto& tile = Mapa_test.at(j, i);
             if (tile.hasObject()){
-            std::cout << tile.GetObject();
+            std::cout << tile.getObject();
             }
             else{
-            std::cout << tile.GetTileColor() << tile.GetTileSymbol() <<"\x1b[0m";
+            std::cout << tile.getTileColor() << tile.getTileSymbol() <<"\x1b[0m";
             }
         }
         std::cout << "\n";

@@ -11,7 +11,7 @@ namespace kk{
     private: 
         std::unique_ptr<Biome> m_biometype; ///< Pointer to biome type of Tile 
         std::unique_ptr<Objects> m_object; ///<Ponter to object that can be placed on Tile 
-        float m_detailvalue; ///< Value for object placing 
+        float m_detailvalue = 0.0f; ///< Value for object placing 
     public: 
         /**
          * Default constructor
@@ -34,13 +34,13 @@ namespace kk{
          * Function to get symbol of Tile
          * @return ASCII symbol of biome
          */
-        char GetTileSymbol() const;
+        char getTileSymbol() const;
 
         /**
          * Function to get color of Tile
          * @return ANSII color code of biome 
          */
-        std::string GetTileColor() const;
+        std::string getTileColor() const;
 
         /**
          * Function to set object to a Tile 
@@ -52,7 +52,7 @@ namespace kk{
          * function to get object symbol
          * @return ASCII symbol of an object
          */
-        char GetObject() const;
+        char getObject() const;
 
         /**
          * Function to chech wheter there is an object on a tile 
@@ -70,7 +70,7 @@ namespace kk{
          * Function to get detail value
          * @return stored detail value
          */
-        float GetDetailValue();
+        float getDetailValue() const;
 
         /**
          * operator ==

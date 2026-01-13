@@ -6,10 +6,10 @@ namespace kk
     }
     Biome::Biome(char symbol, std::string color): m_symbol(symbol), m_color(color){
     }
-    char Biome::GetBiomeSymbol() const{
+    char Biome::getBiomeSymbol() const{
         return m_symbol;
     }
-    std::string Biome::GetBiomeColor() const{
+    std::string Biome::getBiomeColor() const{
         return m_color;
     }
     int Biome::getNob(){
@@ -31,28 +31,28 @@ namespace kk
     }
     Water::Water(char symbol, std::string color) : Biome(symbol, color){
     }
-    Water::Water() : Biome('~', "\x1b[38;5;45m") {
+    Water::Water() : Biome(ws, wc) {
     }
-    DeepWater:: DeepWater() : Water('~', "\x1b[38;5;4m"){
+    DeepWater:: DeepWater() : Water(ws, dwc){
     }
     Plains::Plains(char symbol, std::string color) : Biome(symbol, color){  
     }
-    Plains::Plains() : Biome('_', "\x1b[38;5;10m") {
+    Plains::Plains() : Biome(ps, pc) {
     }
-    Beach::Beach() : Plains('.',"\x1b[38;5;220m"){
+    Beach::Beach() : Plains(bs, bc){
     }
     Forest::Forest(char symbol, std::string color) : Biome(symbol, color){  
     }
-    Forest::Forest() : Biome('Y', "\x1b[38;5;10m") {
+    Forest::Forest() : Biome(fs, fc) {
     }
-    DarkForest::DarkForest() : Forest('Y', "\x1b[38;5;22m") {
+    DarkForest::DarkForest() : Forest(fs, dfc) {
     }
-    Glade::Glade() : Forest(',', "\x1b[38;5;155m"){
+    Glade::Glade() : Forest(gs, gc){
     }
     Mountain::Mountain(char symbol, std::string color) : Biome(symbol, color){  
     }
-    Mountain::Mountain() : Biome('^', "\x1b[38;5;235m") {
+    Mountain::Mountain() : Biome(ms, mc) {
     }
-    MountainPeak::MountainPeak() : Mountain('^',"\x1b[38;5;255m") {
+    MountainPeak::MountainPeak() : Mountain(ms, mpc) {
     }
 }

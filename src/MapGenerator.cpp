@@ -15,20 +15,20 @@ namespace kk{
     Map PerlinNoiseGenerator::generate(int width, int height, int seed){
         Map newMap(width, height);
         m_noise1.SetSeed(seed);
-        m_noise2.SetSeed(seed+5);
+        m_noise2.SetSeed(seed+seedmodifier);
         for (int i =0 ; i < height; i++){
             for (int j = 0 ; j < width ; j++ ){
                 int type;
                 float layer1 = m_noise1.GetNoise((float)j, (float)i);
                 float layer2 = m_noise2.GetNoise((float)j, (float)i);
-                float combinednoise =layer1*0.85f + layer2*0.15f;
-                if (combinednoise < 0.0f){
+                float combinednoise =layer1*noisemult1 + layer2*noisemult2;
+                if (combinednoise < wthreshold){
                     type = 0;
                 }
-                else if (combinednoise<0.15f){
+                else if (combinednoise < pthreshold){
                     type = 1;
                 }
-                else if (combinednoise <0.4f){
+                else if (combinednoise < fthreshold){
                     type = 2;
                 } 
                 else{
@@ -64,7 +64,7 @@ namespace kk{
         for (int i =0 ; i < height; i++){
             for (int j = 0 ; j < width ; j++ ){
                 double distance = 100000;
-                int type = -1;
+                int type = 0;
                 for (const auto &p : startingpoints){
                     double newdistance = std::sqrt(std::pow((i - p.y), 2) + std::pow((j - p.x), 2));
                     if (newdistance < distance){

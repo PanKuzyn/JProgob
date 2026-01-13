@@ -4,13 +4,13 @@ namespace kk{
     }
     Objects::Objects(char objsymbol):m_objsymbol(objsymbol){
     }
-    char Objects::GetObjectSymbol() const{
+    char Objects::getObjectSymbol() const{
         return m_objsymbol;
     }
-    Bush::Bush():Objects('#'){
+    Bush::Bush():Objects(bs){
     }
-    Tree::Tree():Objects('T'){
+    Tree::Tree():Objects(ts){
     }
-    TreasureChest::TreasureChest():Objects('X'){
+    TreasureChest::TreasureChest():Objects(tcs){
     }
 }

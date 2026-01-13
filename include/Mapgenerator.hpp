@@ -33,8 +33,14 @@ namespace kk{
     private:
         FastNoiseLite m_noise1; ///< Main layer for map layout look 
         FastNoiseLite m_noise2; ///< Additional layer for adding small details to the map 
-        const float m_layer1freq = 0.027f; ///< First layer frequency I found to be working good 
-        const float m_layer2freq = 0.09f; ///< Second layer frequency I found to be adding nice details 
+        float m_layer1freq = 0.027f; ///< First layer frequency I found to be working good 
+        float m_layer2freq = 0.09f; ///< Second layer frequency I found to be adding nice details 
+        static constexpr int seedmodifier = 5; ///<modifies seed for second layer of noise
+        static constexpr float noisemult1 = 0.85f; ///<multiplicator of first layer of noise
+        static constexpr float noisemult2 = 0.15f; ///< multiplicator of second layer of noise
+        static constexpr float wthreshold = 0.0f; ///< Water noise value threshold 
+        static constexpr float pthreshold = 0.15f;///< Plains noise value threshold
+        static constexpr float fthreshold = 0.4f;///< Forest noise value threshold
     public:
         /**
          * Deafualt constructor 
