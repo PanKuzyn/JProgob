@@ -109,5 +109,11 @@ namespace kk{
          * @return Map generated object filed with biomes
          */
         Map generate(int width, int height, int seed) override;
+
+        /**
+         * Funcition for setting and checking value of nob
+         * @param nob  number of biomes
+         */
+        void setNob(int nob);
     };
 }

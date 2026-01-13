@@ -81,4 +81,17 @@ namespace kk{
         }
         return newMap;
     }
+
+    void VoronoiGenerator::setNob(int nob){
+        int maxnob = Biome::getNob();
+        if (nob > maxnob){
+            m_numberofbiomes = maxnob;
+        }
+        else if(nob<=0){
+            m_numberofbiomes = 4;
+        }
+        else{
+            m_numberofbiomes=nob;
+        }
+    }
 }
