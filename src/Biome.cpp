@@ -2,19 +2,22 @@
 
 namespace kk
 {   
-    Biome::Biome(){
-    }
-    Biome::Biome(char symbol, std::string color): m_symbol(symbol), m_color(color){
-    }
+    Biome::Biome(){}
+
+    Biome::Biome(char symbol, std::string color): m_symbol(symbol), m_color(color){}
+
     char Biome::getBiomeSymbol() const{
         return m_symbol;
     }
+
     std::string Biome::getBiomeColor() const{
         return m_color;
     }
+
     int Biome::getNob(){
         return m_nob;
     }
+
     std::unique_ptr<Biome> Biome::setBiome(int type){
         switch(type){
                 case 0:
@@ -29,30 +32,30 @@ namespace kk
                     return std::make_unique<Water>();
             }
     }
-    Water::Water(char symbol, std::string color) : Biome(symbol, color){
-    }
-    Water::Water() : Biome(ws, wc) {
-    }
-    DeepWater:: DeepWater() : Water(ws, dwc){
-    }
-    Plains::Plains(char symbol, std::string color) : Biome(symbol, color){  
-    }
-    Plains::Plains() : Biome(ps, pc) {
-    }
-    Beach::Beach() : Plains(bs, bc){
-    }
-    Forest::Forest(char symbol, std::string color) : Biome(symbol, color){  
-    }
-    Forest::Forest() : Biome(fs, fc) {
-    }
-    DarkForest::DarkForest() : Forest(fs, dfc) {
-    }
-    Glade::Glade() : Forest(gs, gc){
-    }
-    Mountain::Mountain(char symbol, std::string color) : Biome(symbol, color){  
-    }
-    Mountain::Mountain() : Biome(ms, mc) {
-    }
-    MountainPeak::MountainPeak() : Mountain(ms, mpc) {
-    }
+
+    Water::Water(char symbol, std::string color) : Biome(symbol, color){}
+
+    Water::Water() : Biome(ws, wc) {}
+
+    DeepWater:: DeepWater() : Water(ws, dwc){}
+
+    Plains::Plains(char symbol, std::string color) : Biome(symbol, color){}
+
+    Plains::Plains() : Biome(ps, pc) {}
+
+    Beach::Beach() : Plains(bs, bc){}
+
+    Forest::Forest(char symbol, std::string color) : Biome(symbol, color){}
+
+    Forest::Forest() : Biome(fs, fc){}
+
+    DarkForest::DarkForest() : Forest(fs, dfc){}
+
+    Glade::Glade() : Forest(gs, gc){}
+
+    Mountain::Mountain(char symbol, std::string color) : Biome(symbol, color){}
+
+    Mountain::Mountain() : Biome(ms, mc){}
+
+    MountainPeak::MountainPeak() : Mountain(ms, mpc){}
 }

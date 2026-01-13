@@ -6,12 +6,14 @@ namespace kk{
             m_noise2.SetNoiseType(FastNoiseLite::NoiseType_Perlin);
             m_noise2.SetFrequency(m_layer2freq);
     }
+
     PerlinNoiseGenerator::PerlinNoiseGenerator(float freq1, float freq2):m_layer1freq(freq1), m_layer2freq(freq2){
             m_noise1.SetNoiseType(FastNoiseLite::NoiseType_Perlin);
             m_noise1.SetFrequency(m_layer1freq);
             m_noise2.SetNoiseType(FastNoiseLite::NoiseType_Perlin);
             m_noise2.SetFrequency(m_layer2freq);
     }
+
     Map PerlinNoiseGenerator::generate(int width, int height, int seed){
         Map newMap(width, height);
         m_noise1.SetSeed(seed);
@@ -41,10 +43,10 @@ namespace kk{
         return newMap;
     }
 
-    VoronoiGenerator::VoronoiGenerator(){
-    }
-    VoronoiGenerator::VoronoiGenerator(int nob, int nosp):m_numberofbiomes(nob), m_numberofstartingpoints(nosp){
-    }
+    VoronoiGenerator::VoronoiGenerator(){}
+
+    VoronoiGenerator::VoronoiGenerator(int nob, int nosp):m_numberofbiomes(nob), m_numberofstartingpoints(nosp){}
+
     std::vector<VoronoiPoint> VoronoiGenerator::m_generatestartingpoints(int width, int height, int nob, int seed){
         std::mt19937 rnd(seed);
         std::vector<VoronoiPoint> startingpoints;
@@ -58,6 +60,7 @@ namespace kk{
         }
         return startingpoints;
     }
+    
     Map VoronoiGenerator::generate(int width, int height, int seed){
         Map newMap(width, height);
         std::vector<VoronoiPoint> startingpoints = m_generatestartingpoints(width,height,m_numberofbiomes,seed);

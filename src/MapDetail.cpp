@@ -1,20 +1,23 @@
 #include "MapDetails.hpp"
 namespace kk{
-    MapDetails::MapDetails(int seed):m_seed(seed){
-    }
-    MapDetails::MapDetails(int seed, float freq):m_seed(seed), m_frequency(freq){
-    }
+    MapDetails::MapDetails(int seed):m_seed(seed){}
+
+    MapDetails::MapDetails(int seed, float freq):m_seed(seed), m_frequency(freq){}
+
     void MapDetails::ApplyDetails(Map& finishedMap){
         CreateDetailLayer(finishedMap);
         BiomeDetails(finishedMap);
         ObjectPlacer(finishedMap);
     }
+
     void MapDetails::setSeed(int seed){
         m_seed = seed;
     }
+
     void MapDetails::setFrequency(float freq){
         m_frequency = freq;
     }
+
     void MapDetails::CreateDetailLayer(Map& layer){
         FastNoiseLite Detailsnoise;
         Detailsnoise.SetNoiseType(FastNoiseLite::NoiseType_Perlin);
@@ -27,6 +30,7 @@ namespace kk{
             }
         }
     }
+
     void MapDetails::BiomeDetails(Map& layer){
         for(int i =0; i <layer.getHeight(); i++){
             for(int j = 0; j < layer.getWidth(); j++){
@@ -58,6 +62,7 @@ namespace kk{
             }
         }
     }
+    
     void MapDetails::ObjectPlacer(Map& layer){
         bool SpecialObjects = false;
         for (int i = 0; i < layer.getHeight(); i++){
