@@ -1,0 +1,13 @@
+mapa
+
+*.exe
+
+*.o
+
+.vscode
+
+*.swp
+
+*~
+
+libs/
